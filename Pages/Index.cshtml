@@ -4,7 +4,89 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="parent-container d-flex">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col-lg-12">
+                    <div class="card" style="width: 65rem;">
+                        <div class="card-body">
+                            <section>
+                                <div class="form-row">
+
+                                    <div class="col form-group col-lg-2">
+                                        <a asp-action="GetBooks" class="btn btn-primary btn-sm" style="width:160px;">Get Books</a>
+
+                                    </div>
+                                    <div class="col form-group">
+                                        <a asp-page="./AddBook" asp-page-handler="" class="btn btn-secondary btn-sm" style="width:160px;"><i class="fa fa-plus" aria-hidden="true"></i>   Create New</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                       ID
+                                                    </th>
+                                                    <th>
+                                                       Title
+                                                    </th>
+                                                    <th>
+                                                       Publisher
+                                                    </th>
+                                                    <th>
+                                                       Category
+                                                    </th>
+                                                    <th>
+                                                        Author
+                                                    </th>
+                                                    <th>
+                                                        Price
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Books)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.ID)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Title)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.PublishingCompany)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Category)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Author)
+                                                        </td>
+                                                        <td>
+                                                            $ @Html.DisplayFor(modelItem => item.Price)
+                                                        </td>
+
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><p></p>
+<hr />
+
+
